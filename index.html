@@ -41,7 +41,10 @@
     <section class="hero">
         <div class="hero-text">
             <span>PORTFÓLIO PROFISSIONAL</span>
-            <h1>Desenvolvedor de Soluções Corporativas</h1>
+            <h1>
+                <span id="typed-text" role="text" aria-live="polite">Desenvolvedor de Soluções Corporativas</span>
+                <span class="cursor" aria-hidden="true"></span>
+            </h1>
 
             <p>
                 Estudante de Análise e Desenvolvimento de Sistemas com experiência em automação
@@ -175,6 +178,57 @@
 
         ScrollReveal().reveal('.skill', {
             interval: 80
+        });
+    </script>
+
+    <!-- Typing animation script: erase and type loop -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const phrases = [
+                'Desenvolvedor de Soluções Corporativas',
+                'Desenvolvedor Python'
+            ];
+            const typedText = document.getElementById('typed-text');
+            const cursor = document.querySelector('.cursor');
+            let phraseIndex = 0;
+            let charIndex = 0;
+            let deleting = false;
+
+            const typeSpeed = 80; // ms per char
+            const deleteSpeed = 40; // ms per char when deleting
+            const pauseAfterType = 1600; // pause after full word
+            const pauseAfterDelete = 300; // pause after delete
+
+            function tick() {
+                const current = phrases[phraseIndex];
+                if (!deleting) {
+                    // typing
+                    charIndex++;
+                    typedText.textContent = current.slice(0, charIndex);
+                    if (charIndex === current.length) {
+                        deleting = true;
+                        setTimeout(tick, pauseAfterType);
+                        return;
+                    }
+                    setTimeout(tick, typeSpeed);
+                } else {
+                    // deleting
+                    charIndex--;
+                    typedText.textContent = current.slice(0, charIndex);
+                    if (charIndex === 0) {
+                        deleting = false;
+                        phraseIndex = (phraseIndex + 1) % phrases.length;
+                        setTimeout(tick, pauseAfterDelete);
+                        return;
+                    }
+                    setTimeout(tick, deleteSpeed);
+                }
+            }
+
+            // ensure cursor visible
+            if (cursor) cursor.setAttribute('aria-hidden', 'true');
+            // start animation
+            tick();
         });
     </script>
 
