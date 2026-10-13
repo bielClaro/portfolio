@@ -31,7 +31,7 @@ body{
 
 /* ==========================
    BACKGROUND ANIMATION
-========================== */
+========================= */
 
 @keyframes bgAnimation{
 
@@ -48,14 +48,15 @@ body{
     }
 }
 
-/* Typing animation styles */
+/* Typing animation styles - cursor placed inside the typed container */
 #typed-text { display:inline-block; }
-.cursor{
+#typed-text .text { display:inline; }
+#typed-text .cursor{
     display:inline-block;
     width:2px;
     height:1.1em;
     background: #ffffff;
-    margin-left:8px;
+    margin-left:6px;
     vertical-align:bottom;
     animation: blink 0.8s step-start infinite;
 }
@@ -63,7 +64,7 @@ body{
 
 /* ==========================
    HEADER
-========================== */
+========================= */
 
 header{
 
@@ -114,7 +115,7 @@ nav a:hover{
 
 /* ==========================
    HERO
-========================== */
+========================= */
 
 .hero{
     display:flex;
@@ -150,7 +151,7 @@ nav a:hover{
 
 /* ==========================
    FOTO
-========================== */
+========================= */
 
 .hero-image img{
     width:400px;
@@ -168,7 +169,7 @@ nav a:hover{
 
 /* ==========================
    BOTÕES
-========================== */
+========================= */
 
 .buttons{
     margin-top:30px;

@@ -41,8 +41,11 @@
         <div class="hero-text">
             <span>PORTFÓLIO PROFISSIONAL</span>
             <h1>
-                <span id="typed-text" role="text" aria-live="polite">Desenvolvedor de Soluções Corporativas</span>
-                <span class="cursor" aria-hidden="true"></span>
+                <!-- changed: typed container with inner .text and .cursor so cursor isn't removed when updating text -->
+                <span id="typed-text" role="text" aria-live="polite">
+                    <span class="text"></span>
+                    <span class="cursor" aria-hidden="true"></span>
+                </span>
             </h1>
 
             <p>
@@ -178,15 +181,16 @@
         });
     </script>
 
-    <!-- Typing animation script - original loop -->
+    <!-- Typing animation script - original loop, updated to write into .text child -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const phrases = [
                 'Desenvolvedor de Soluções Corporativas',
                 'Desenvolvedor Python'
             ];
-            const typedText = document.getElementById('typed-text');
-            const cursor = document.querySelector('.cursor');
+            const typedContainer = document.getElementById('typed-text');
+            const textEl = typedContainer.querySelector('.text');
+            const cursor = typedContainer.querySelector('.cursor');
             let phraseIndex = 0;
             let charIndex = 0;
             let deleting = false;
@@ -200,7 +204,7 @@
                 const current = phrases[phraseIndex];
                 if (!deleting) {
                     charIndex++;
-                    typedText.textContent = current.slice(0, charIndex);
+                    textEl.textContent = current.slice(0, charIndex);
                     if (charIndex === current.length) {
                         deleting = true;
                         setTimeout(tick, pauseAfterType);
@@ -209,7 +213,7 @@
                     setTimeout(tick, typeSpeed);
                 } else {
                     charIndex--;
-                    typedText.textContent = current.slice(0, charIndex);
+                    textEl.textContent = current.slice(0, charIndex);
                     if (charIndex === 0) {
                         deleting = false;
                         phraseIndex = (phraseIndex + 1) % phrases.length;
@@ -221,7 +225,7 @@
             }
 
             if (cursor) cursor.setAttribute('aria-hidden', 'true');
-            typedText.textContent = '';
+            textEl.textContent = ''; // only clear the inner text element; cursor remains
             tick();
         });
     </script>
