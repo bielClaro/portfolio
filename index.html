@@ -181,7 +181,7 @@
         });
     </script>
 
-    <!-- Typing animation script: erase and type loop -->
+    <!-- Typing animation script: refined erase + fade loop -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const phrases = [
@@ -194,41 +194,71 @@
             let charIndex = 0;
             let deleting = false;
 
-            const typeSpeed = 80; // ms per char
-            const deleteSpeed = 40; // ms per char when deleting
-            const pauseAfterType = 1600; // pause after full word
-            const pauseAfterDelete = 300; // pause after delete
+            const typeSpeed = 70; // ms per char
+            const deleteSpeed = 36; // ms per char when deleting
+            const pauseAfterType = 2000; // pause after full word
+            const pauseAfterDelete = 260; // pause after delete
 
             function tick() {
                 const current = phrases[phraseIndex];
+
                 if (!deleting) {
                     // typing
                     charIndex++;
                     typedText.textContent = current.slice(0, charIndex);
+
+                    // ensure visible while typing
+                    typedText.classList.remove('fade-out');
+
                     if (charIndex === current.length) {
-                        deleting = true;
-                        setTimeout(tick, pauseAfterType);
+                        // full word typed: add subtle glow
+                        typedText.classList.add('full');
+                        setTimeout(() => {
+                            // fade out before deleting for a smoother transition
+                            typedText.classList.add('fade-out');
+                            setTimeout(() => {
+                                typedText.classList.remove('full');
+                                deleting = true;
+                                tick();
+                            }, 280);
+                        }, pauseAfterType);
                         return;
                     }
-                    setTimeout(tick, typeSpeed);
+                    setTimeout(tick, typeSpeed + Math.random() * 40);
                 } else {
                     // deleting
                     charIndex--;
                     typedText.textContent = current.slice(0, charIndex);
+
                     if (charIndex === 0) {
+                        // finished deleting -> move to next phrase
                         deleting = false;
                         phraseIndex = (phraseIndex + 1) % phrases.length;
-                        setTimeout(tick, pauseAfterDelete);
+
+                        // quick pause, then fade-in and start typing next phrase
+                        setTimeout(() => {
+                            typedText.classList.remove('fade-out');
+                            // small fade-in emphasis
+                            typedText.classList.add('fade-in');
+                            setTimeout(() => typedText.classList.remove('fade-in'), 360);
+                            tick();
+                        }, pauseAfterDelete);
                         return;
                     }
                     setTimeout(tick, deleteSpeed);
                 }
             }
 
-            // ensure cursor visible
+            // accessibility + start
             if (cursor) cursor.setAttribute('aria-hidden', 'true');
-            // start animation
-            tick();
+            // initialize state
+            typedText.textContent = '';
+            typedText.classList.remove('fade-out', 'fade-in', 'full');
+            // small initial fade-in
+            typedText.classList.add('fade-in');
+            setTimeout(() => typedText.classList.remove('fade-in'), 300);
+
+            setTimeout(tick, 450);
         });
     </script>
 

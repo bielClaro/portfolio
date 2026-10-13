@@ -48,8 +48,12 @@ body{
     }
 }
 
-/* Typing animation styles */
-#typed-text{ display:inline-block; }
+/* Typing animation styles (refined) */
+#typed-text{
+    display:inline-block;
+    transition: opacity .28s ease, transform .28s ease, filter .28s ease, text-shadow .28s ease;
+}
+
 .cursor{
     display:inline-block;
     width:2px;
@@ -59,7 +63,26 @@ body{
     vertical-align:bottom;
     animation: blink 0.8s step-start infinite;
 }
+
 @keyframes blink{ 50%{ opacity: 0; } }
+
+/* Fade & subtle motion when switching phrases */
+#typed-text.fade-out{
+    opacity:0;
+    transform:translateY(-6px) scale(.995);
+    filter: blur(1px);
+}
+
+#typed-text.fade-in{
+    opacity:1;
+    transform:none;
+    filter:none;
+}
+
+#typed-text.full{
+    text-shadow: 0 0 16px rgba(59,130,246,.14);
+    letter-spacing: -0.01em;
+}
 
 /* ==========================
    HEADER
