@@ -1,235 +1,151 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Gabriel Claro | Portfólio</title>
-
-    <!-- Google Fonts preconnect -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gabriel Claro | Portfólio</title>
+<meta name="description" content="Estudante de Análise e Desenvolvimento de Sistemas. Automação de processos com VBA, Power Platform e Power BI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf9;--fg:#18181b;--mut:#6b6b76;--card:#fff;--line:#e4e4e7;--acc:#7c3aed;--acc2:#db2777;--glass:rgba(250,250,249,.78);--glow:.10;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#08080b;--fg:#f4f4f5;--mut:#9a9aa6;--card:#101015;--line:#22222b;--acc:#a78bfa;--acc2:#f472b6;--glass:rgba(8,8,11,.72);--glow:.22}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#08080b;--fg:#f4f4f5;--mut:#9a9aa6;--card:#101015;--line:#22222b;--acc:#a78bfa;--acc2:#f472b6;--glass:rgba(8,8,11,.72);--glow:.22}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:700;line-height:1.1;margin:0;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.grad{background:linear-gradient(110deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+#bar{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--acc),var(--acc2));z-index:60}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+nav b{font-family:"Playfair Display",Georgia,serif;font-size:20px;white-space:nowrap}
+nav ul{display:flex;gap:24px;list-style:none;margin:0;padding:0;font-size:14px;color:var(--mut)}
+nav ul a{transition:color .25s}nav ul a:hover{color:var(--fg)}
+#theme{background:none;border:1px solid var(--line);color:var(--fg);width:36px;height:36px;border-radius:50%;cursor:pointer;transition:transform .4s;flex:none}
+#theme:hover{transform:rotate(180deg)}
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 0 80px;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px circle at var(--mx,50%) var(--my,30%),color-mix(in srgb,var(--acc) calc(var(--glow)*100%),transparent),transparent 60%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:center;position:relative}
+.tag{display:inline-flex;gap:8px;align-items:center;font-size:13px;color:var(--mut);border:1px solid var(--line);padding:6px 14px;border-radius:99px;background:var(--card)}
+.tag i{width:7px;height:7px;border-radius:50%;background:#22c55e;animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 8px #22c55e00}0%{box-shadow:0 0 0 0 #22c55e88}}
+.hero h1{font-size:clamp(38px,6vw,68px);margin:22px 0 18px}
+.type{min-height:2.2em;display:block}.type::after{content:"";display:inline-block;width:3px;height:.8em;margin-left:4px;background:var(--acc);vertical-align:-.05em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p{max-width:560px;color:var(--mut);font-size:18px;margin:0}
+.cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;border-radius:99px;font-weight:600;font-size:15px;border:1px solid var(--line);transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .3s}
+.btn.p{background:linear-gradient(110deg,var(--acc),var(--acc2));color:#fff;border:0;box-shadow:0 10px 30px -10px var(--acc)}
+.btn:hover{box-shadow:0 14px 34px -12px var(--acc)}
+.photo{position:relative;aspect-ratio:4/5;border-radius:28px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(140deg,var(--acc),var(--acc2));display:grid;place-items:center;font:700 80px "Playfair Display",Georgia,serif;color:#fff;box-shadow:0 30px 70px -30px var(--acc);animation:float 7s ease-in-out infinite}
+.photo img,.cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+@keyframes float{50%{transform:translateY(-10px)}}
+section{padding:110px 0}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);font-weight:600;margin-bottom:14px}
+h2{font-size:clamp(30px,5vw,48px);margin-bottom:40px}
+.about p{max-width:720px;color:var(--mut);font-size:18px;margin:0 0 18px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:20px;border-top:1px solid var(--line);padding-top:36px;margin-top:44px}
+.stats b{display:block;font:700 44px "Playfair Display",Georgia,serif}.stats span{color:var(--mut);font-size:14px}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px}
+.skills div{padding:18px;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:16px;font-weight:500;transition:transform .3s,border-color .3s,box-shadow .3s}
+.skills div:hover{transform:translateY(-5px);border-color:var(--acc);box-shadow:0 12px 30px -14px var(--acc)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:transform .25s ease-out,border-color .3s;will-change:transform}
+.card::before{content:"";position:absolute;inset:0;z-index:2;background:radial-gradient(320px circle at var(--x,50%) var(--y,0%),color-mix(in srgb,var(--acc) 16%,transparent),transparent 65%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{border-color:color-mix(in srgb,var(--acc) 55%,var(--line))}.card:hover::before{opacity:1}
+.cover{position:relative;height:190px;background:linear-gradient(140deg,color-mix(in srgb,var(--acc) 70%,#000),var(--acc2));overflow:hidden}
+.cover img{transition:transform .6s}.card:hover .cover img{transform:scale(1.06)}
+.card-c{padding:26px}.card small{color:var(--acc);font-weight:600;font-size:12px;letter-spacing:.1em}
+.card h3{font-size:25px;margin:8px 0 10px}.card p{color:var(--mut);margin:0;font-size:15px}
+.tl{border-left:1px solid var(--line);margin-left:6px}
+.tl>div{position:relative;padding:0 0 10px 32px}
+.tl>div::before{content:"";position:absolute;left:-5px;top:8px;width:9px;height:9px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 5px color-mix(in srgb,var(--acc) 20%,transparent)}
+.tl small{color:var(--mut)}.tl h3{font-size:24px;margin:4px 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{font-size:13px;padding:5px 13px;border:1px solid var(--line);border-radius:99px;color:var(--mut);background:var(--card)}
+.end{text-align:center}.end h2{font-size:clamp(36px,7vw,64px);margin-bottom:18px}.end p{color:var(--mut);margin:0 0 30px}
+footer{border-top:1px solid var(--line);padding:34px 0;text-align:center;color:var(--mut);font-size:14px}
+footer a{margin:0 10px;transition:color .25s}footer a:hover{color:var(--acc)}
+.rv{opacity:0;transform:translateY(28px);filter:blur(6px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1),filter .9s;transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none;filter:none}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr}.photo{max-width:300px;order:-1}nav ul{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none;filter:none}}
+</style>
 </head>
-
 <body>
+<div id="bar"></div>
+<nav><div class="wrap"><b>Gabriel Claro</b>
+<ul><li><a href="#sobre">Sobre</a></li><li><a href="#skills">Tecnologias</a></li><li><a href="#projetos">Projetos</a></li><li><a href="#experiencia">Experiência</a></li><li><a href="#contato">Contato</a></li></ul>
+<button id="theme" aria-label="Alternar tema">◐</button></div></nav>
 
-    <!-- HEADER -->
-    <header>
-        <nav>
-            <div class="logo">Gabriel Claro</div>
+<header class="hero"><div class="wrap">
+<div>
+<span class="tag rv"><i></i> Aberto a oportunidades de estágio em Tecnologia</span>
+<h1 class="rv" style="--d:.1s"><span class="grad type" id="type" aria-live="polite"></span></h1>
+<p class="rv" style="--d:.2s">Estudante de Análise e Desenvolvimento de Sistemas com experiência em automação de processos utilizando VBA, Power Apps, Power Automate, SharePoint e Power BI.</p>
+<div class="cta rv" style="--d:.3s"><a class="btn p" href="#projetos">Ver Projetos</a><a class="btn" href="documentos/curriculo.pdf" target="_blank" rel="noopener">Baixar Currículo</a></div>
+</div>
+<div class="photo rv" style="--d:.25s" aria-label="Foto de Gabriel Claro">GC<img src="images/projeto1.jpg" alt="Foto de Gabriel Claro" onerror="this.remove()"></div>
+</div></header>
 
-            <ul>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#skills">Tecnologias</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-                <li><a href="#experiencia">Experiência</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
+<section id="sobre" class="about"><div class="wrap">
+<div class="eyebrow rv">Sobre</div><h2 class="rv">Automação que <span class="grad">economiza tempo</span>.</h2>
+<p class="rv">Atualmente atuo na General Motors e desenvolvo soluções voltadas para automação de processos, rastreabilidade de materiais e melhoria contínua.</p>
+<p class="rv">Tenho experiência prática no desenvolvimento de ferramentas utilizando Excel VBA, Power Apps, Power Automate, SharePoint e Power BI.</p>
+<div class="stats rv"><div><b data-n="3">0</b><span>projetos desenvolvidos</span></div><div><b data-n="10">0</b><span>tecnologias no repertório</span></div><div><b data-n="5">0</b><span>ferramentas Microsoft em uso</span></div></div>
+</div></section>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="hero-text">
-            <span>PORTFÓLIO PROFISSIONAL</span>
-            <h1>
-                <!-- changed: typed container with inner .text and .cursor so cursor isn't removed when updating text -->
-                <span id="typed-text" role="text" aria-live="polite">
-                    <span class="text"></span>
-                    <span class="cursor" aria-hidden="true"></span>
-                </span>
-            </h1>
+<section id="skills"><div class="wrap">
+<div class="eyebrow rv">Stack</div><h2 class="rv">Tecnologias</h2>
+<div class="skills">
+<div class="rv">Excel VBA</div><div class="rv" style="--d:.05s">Power Apps</div><div class="rv" style="--d:.1s">Power Automate</div><div class="rv" style="--d:.15s">SharePoint</div><div class="rv" style="--d:.2s">Power BI</div>
+<div class="rv" style="--d:.25s">SQL</div><div class="rv" style="--d:.3s">Python</div><div class="rv" style="--d:.35s">Git / GitHub</div><div class="rv" style="--d:.4s">HTML</div><div class="rv" style="--d:.45s">CSS</div>
+</div></div></section>
 
-            <p>
-                Estudante de Análise e Desenvolvimento de Sistemas com experiência em automação
-                de processos utilizando VBA, Power Apps, Power Automate, SharePoint e Power BI.
-            </p>
+<section id="projetos"><div class="wrap">
+<div class="eyebrow rv">Trabalhos selecionados</div><h2 class="rv">Projetos</h2>
+<div class="grid">
+<article class="card rv"><div class="cover"><img src="images/projeto1.jpg" alt="Projeto VBA" onerror="this.remove()"></div><div class="card-c"><small>EXCEL VBA · ZPL</small><h3>Sistema de Rastreamento</h3><p>Ferramenta desenvolvida em Excel VBA para rastreabilidade de produção e emissão automática de etiquetas Zebra (ZPL).</p></div></article>
+<article class="card rv" style="--d:.1s"><div class="cover"><img src="images/projeto2.jpg" alt="Projeto Power Apps" onerror="this.remove()"></div><div class="card-c"><small>POWER APPS · SHAREPOINT</small><h3>Materiais Obsoletos</h3><p>Aplicação desenvolvida em Power Apps integrada ao SharePoint para controle de materiais.</p></div></article>
+<article class="card rv" style="--d:.2s"><div class="cover"><img src="images/projeto3.jpg" alt="Projeto Power Automate" onerror="this.remove()"></div><div class="card-c"><small>POWER AUTOMATE</small><h3>Automações Corporativas</h3><p>Fluxos criados utilizando Power Automate integrados com Outlook, Excel e SharePoint.</p></div></article>
+</div></div></section>
 
-            <div class="buttons">
-                <a href="#projetos" class="btn-primary">Ver Projetos</a>
-                <a href="documentos/curriculo.pdf" class="btn-secondary" target="_blank">Baixar Currículo</a>
-            </div>
-        </div>
+<section id="experiencia"><div class="wrap">
+<div class="eyebrow rv">Trajetória</div><h2 class="rv">Experiência Profissional</h2>
+<div class="tl"><div class="rv"><small>Aprendiz · 2025 – Atual</small><h3>General Motors do Brasil</h3>
+<div class="chips"><span>Aplicações corporativas</span><span>Automação de processos internos</span><span>Power Platform</span><span>Excel VBA</span><span>Análise de dados</span></div></div></div>
+</div></section>
 
-        <div class="hero-image">
-            <img src="images/projeto1.jpg" alt="Foto de Gabriel Claro">
-        </div>
-    </section>
+<section class="end" id="contato"><div class="wrap">
+<h2 class="rv">Vamos <span class="grad">conversar</span>?</h2>
+<p class="rv">Estou aberto para oportunidades de estágio na área de Tecnologia.</p>
+<a class="btn p rv" href="mailto:gabrielclarosantos@gmail.com">Entrar em Contato</a>
+</div></section>
+<footer><p><strong>Gabriel Claro</strong></p><p><a href="https://www.linkedin.com/in/gabrielclarosantos/" target="_blank" rel="noopener">LinkedIn</a><a href="https://github.com/bielClaro" target="_blank" rel="noopener">GitHub</a></p></footer>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="section">
-        <h2>Sobre</h2>
-        <p>
-            Atualmente atuo na General Motors e desenvolvo soluções voltadas para automação
-            de processos, rastreabilidade de materiais e melhoria contínua.
-        </p>
-        <p>
-            Tenho experiência prática no desenvolvimento de ferramentas utilizando
-            Excel VBA, Power Apps, Power Automate, SharePoint e Power BI.
-        </p>
-    </section>
-
-    <!-- TECNOLOGIAS -->
-    <section id="skills" class="section">
-        <h2>Tecnologias</h2>
-        <div class="skills-grid">
-            <div class="skill">Excel VBA</div>
-            <div class="skill">Power Apps</div>
-            <div class="skill">Power Automate</div>
-            <div class="skill">SharePoint</div>
-            <div class="skill">Power BI</div>
-            <div class="skill">SQL</div>
-            <div class="skill">Python</div>
-            <div class="skill">Git / GitHub</div>
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-        </div>
-    </section>
-
-    <!-- PROJETOS -->
-    <section id="projetos" class="section">
-        <h2>Projetos</h2>
-        <div class="cards">
-            <div class="card">
-                <img src="images/projeto1.jpg" alt="Projeto VBA">
-                <div class="card-content">
-                    <h3>Sistema de Rastreamento</h3>
-                    <p>Ferramenta desenvolvida em Excel VBA para rastreabilidade de produção e emissão automática de etiquetas Zebra (ZPL).</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="images/projeto2.jpg" alt="Projeto Power Apps">
-                <div class="card-content">
-                    <h3>Materiais Obsoletos</h3>
-                    <p>Aplicação desenvolvida em Power Apps integrada ao SharePoint para controle de materiais.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="images/projeto3.jpg" alt="Projeto Power Automate">
-                <div class="card-content">
-                    <h3>Automações Corporativas</h3>
-                    <p>Fluxos criados utilizando Power Automate integrados com Outlook, Excel e SharePoint.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXPERIÊNCIA -->
-    <section id="experiencia" class="section">
-        <h2>Experiência Profissional</h2>
-        <div class="experience-card">
-            <h3>General Motors do Brasil</h3>
-            <span>Aprendiz | 2025 - Atual</span>
-            <ul>
-                <li>Desenvolvimento de aplicações corporativas.</li>
-                <li>Automação de processos internos.</li>
-                <li>Power Platform.</li>
-                <li>Excel VBA.</li>
-                <li>Análise de dados.</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta">
-        <h2>Vamos conversar?</h2>
-        <p>Estou aberto para oportunidades de estágio na área de Tecnologia.</p>
-        <a href="mailto:gabrielclarosantos@gmail.com" class="btn-primary">Entrar em Contato</a>
-    </section>
-
-    <!-- RODAPÉ -->
-    <footer id="contato">
-        <p><strong>Gabriel Claro</strong></p>
-        <p><a href="https://www.linkedin.com/in/gabrielclarosantos/" target="_blank">LinkedIn</a></p>
-        <p><a href="https://github.com/seuusuario" target="_blank">GitHub</a></p>
-    </footer>
-
-    <!-- SCROLL REVEAL -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script>
-        ScrollReveal().reveal('.hero-text', {
-            delay: 200,
-            distance: '50px',
-            origin: 'left'
-        });
-
-        ScrollReveal().reveal('.hero-image', {
-            delay: 300,
-            distance: '50px',
-            origin: 'right'
-        });
-
-        ScrollReveal().reveal('.card', {
-            delay: 200,
-            interval: 150,
-            distance: '40px',
-            origin: 'bottom'
-        });
-
-        ScrollReveal().reveal('.skill', {
-            interval: 80
-        });
-    </script>
-
-    <!-- Typing animation script - original loop, updated to write into .text child -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const phrases = [
-                'Desenvolvedor de Soluções Corporativas',
-                'Desenvolvedor Python'
-            ];
-            const typedContainer = document.getElementById('typed-text');
-            const textEl = typedContainer.querySelector('.text');
-            const cursor = typedContainer.querySelector('.cursor');
-            let phraseIndex = 0;
-            let charIndex = 0;
-            let deleting = false;
-
-            const typeSpeed = 80;
-            const deleteSpeed = 40;
-            const pauseAfterType = 1800;
-            const pauseAfterDelete = 300;
-
-            function tick() {
-                const current = phrases[phraseIndex];
-                if (!deleting) {
-                    charIndex++;
-                    textEl.textContent = current.slice(0, charIndex);
-                    if (charIndex === current.length) {
-                        deleting = true;
-                        setTimeout(tick, pauseAfterType);
-                        return;
-                    }
-                    setTimeout(tick, typeSpeed);
-                } else {
-                    charIndex--;
-                    textEl.textContent = current.slice(0, charIndex);
-                    if (charIndex === 0) {
-                        deleting = false;
-                        phraseIndex = (phraseIndex + 1) % phrases.length;
-                        setTimeout(tick, pauseAfterDelete);
-                        return;
-                    }
-                    setTimeout(tick, deleteSpeed);
-                }
-            }
-
-            if (cursor) cursor.setAttribute('aria-hidden', 'true');
-            textEl.textContent = ''; // only clear the inner text element; cursor remains
-            tick();
-        });
-    </script>
-
+<script>
+(function(){
+var R=matchMedia('(prefers-reduced-motion:reduce)').matches,$=function(s,c){return[].slice.call((c||document).querySelectorAll(s))};
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);
+$('[data-n]',e.target).forEach(function(el){var n=+el.dataset.n,t0=performance.now();(function f(t){var p=Math.min((t-t0)/1200,1);el.textContent=Math.round(n*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)})})},{threshold:.15});
+$('.rv').forEach(function(el){io.observe(el)});
+var bar=document.getElementById('bar');
+addEventListener('scroll',function(){var h=document.documentElement;bar.style.transform='scaleX('+(h.scrollTop/(h.scrollHeight-h.clientHeight||1))+')'},{passive:true});
+var words=['Desenvolvedor de Soluções Corporativas','Desenvolvedor Python'],el=document.getElementById('type'),w=0,c=0,del=false;
+if(R){el.textContent=words[0];el.style.setProperty('--x',0)}else(function tick(){var s=words[w];c+=del?-1:1;el.textContent=s.slice(0,c);var d=del?35:75;
+if(!del&&c===s.length){del=true;d=1800}else if(del&&c===0){del=false;w=(w+1)%words.length;d=350}setTimeout(tick,d)})();
+if(!R){
+var hero=$('.hero')[0];hero.addEventListener('pointermove',function(e){var r=hero.getBoundingClientRect();hero.style.setProperty('--mx',(e.clientX-r.left)+'px');hero.style.setProperty('--my',(e.clientY-r.top)+'px')});
+$('.card').forEach(function(c){c.addEventListener('pointermove',function(e){var r=c.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+c.style.setProperty('--x',x+'px');c.style.setProperty('--y',y+'px');
+c.style.transform='perspective(900px) rotateX('+((y/r.height-.5)*-5)+'deg) rotateY('+((x/r.width-.5)*5)+'deg) translateY(-4px)'});
+c.addEventListener('pointerleave',function(){c.style.transform=''})})}
+var root=document.documentElement;document.getElementById('theme').addEventListener('click',function(){
+var dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;root.dataset.theme=dark?'light':'dark'});
+})();
+</script>
 </body>
-
 </html>
